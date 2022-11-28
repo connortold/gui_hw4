@@ -1,0 +1,156 @@
+<!-- 
+  Author: Connor Tolderlund
+  Email: connor_tolderlund@student.uml.edu
+ -->
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Multiplication Table</title>
+    <link rel="stylesheet" href="style.css" />
+    <!-- nice font, thanks Google -->
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css?family=Poppins"
+    />
+    <!-- Bootstrap CDN -->
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/css/bootstrap.min.css"
+      integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T"
+      crossorigin="anonymous"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.13.2/themes/base/jquery-ui.min.css"
+      integrity="sha512-ELV+xyi8IhEApPS/pSj66+Jiw+sOT1Mqkzlh8ExXihe4zfqbWkxPRi8wptXIO9g73FSlhmquFlUOuMSoXz5IRw=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.13.2/themes/base/theme.min.css"
+      integrity="sha512-hbs/7O+vqWZS49DulqH1n2lVtu63t3c3MTAn0oYMINS5aT8eIAbJGDXgLt6IxDHcWyzVTgf9XyzZ9iWyVQ7mCQ=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+  </head>
+  <body>
+    <div class="container">
+      <!-- wrapper for form -->
+      <div class="row justify-content-center my-4">
+        <div class="col-lg-8 col-xs-12">
+          <!-- form for mult table ranges -->
+          <form id="table-range-form" class="form-horizontal inputs frm py-3">
+            <!-- form row -->
+            <div class="row mb-1 col-12">
+              <label class="col-md-4 col-xs-12 col-form-label-md" for="min-x"
+                >Minimum X value:</label
+              >
+              <div class="col-md-4 col-xs-12 mr-auto">
+                <input
+                  type="number"
+                  id="min-x"
+                  name="minx"
+                  class="form-control-sm w80"
+                />
+              </div>
+              <div
+                class="col-md-4 col-xs-12 w80 my-auto slider"
+                id="slider-min-x"
+              ></div>
+            </div>
+
+            <!-- form row -->
+            <div class="row mb-1 col-12">
+              <label class="col-md-4 col-xs-12 col-form-label-md" for="min-x"
+                >Maximum X value:</label
+              >
+              <div class="col-md-4 col-xs-12 mr-auto">
+                <input
+                  type="number"
+                  name="maxx"
+                  id="max-x"
+                  class="form-control-sm w80"
+                />
+              </div>
+              <div
+                class="col-md-4 col-xs-12 w80 my-auto slider"
+                id="slider-max-x"
+              ></div>
+            </div>
+
+            <!-- form row -->
+            <div class="row mb-1 col-12">
+              <label class="col-md-4 col-xs-12 col-form-label-md" for="min-x"
+                >Minimum Y value:</label
+              >
+              <div class="col-md-4 col-xs-12 mr-auto">
+                <input
+                  type="number"
+                  id="min-y"
+                  name="miny"
+                  class="form-control-sm w80"
+                />
+              </div>
+              <div
+                class="col-md-4 col-xs-12 w80 my-auto slider"
+                id="slider-min-y"
+              ></div>
+            </div>
+
+            <div class="row mb-1 col-12">
+              <label class="col-md-4 col-xs-12 col-form-label-md" for="min-x"
+                >Maximum Y value:</label
+              >
+              <div class="col-md-4 col-xs-12 mr-auto">
+                <input
+                  type="number"
+                  name="maxy"
+                  id="max-y"
+                  class="form-control-sm w80"
+                />
+              </div>
+              <div
+                class="col-md-4 col-xs-12 w80 my-auto slider"
+                id="slider-max-y"
+              ></div>
+            </div>
+
+            <button
+              type="submit"
+              id="recalc-btn"
+              class="row col-xs-8 my-2 mx-auto px-2"
+            >
+              <span class="mx-auto">Calculate</span>
+            </button>
+          </form>
+        </div>
+      </div>
+      <div class="row overflow-hidden">
+        <!-- container for dynamically generated table  class="hidden"-->
+        <div id="table-container" class="hidden">
+          <ul id="tab-container"></ul>
+        </div>
+      </div>
+    </div>
+
+    <script
+      src="https://code.jquery.com/jquery-3.6.1.min.js"
+      integrity="sha256-o88AwQnZB+VDvE9tvIXrMQaPlFFSUTR+nldQm1LuPXQ="
+      crossorigin="anonymous"
+    ></script>
+    <script src="https://cdn.jsdelivr.net/npm/jquery-validation@1.19.5/dist/jquery.validate.min.js"></script>
+    <script
+      src="https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.13.2/jquery-ui.min.js"
+      integrity="sha512-57oZ/vW8ANMjR/KQ6Be9v/+/h6bq9/l3f0Oc7vn6qMqyhvPd1cvKBRWWpzu0QoneImqr2SkmO4MSqU+RpHom3Q=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    ></script>
+
+    <script src="./index.js"></script>
+  </body>
+</html>

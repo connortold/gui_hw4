@@ -1,0 +1,117 @@
+/* 
+  Author: Connor Tolderlund
+  Email: connor_tolderlund@student.uml.edu 
+*/
+
+/* makes changin colors easier */
+:root {
+  --th-color: #cdc5b4;
+  --th-color-darker: #aca597;
+
+  --td-color: #dec0c8;
+  --td-color-darker: #ae979d;
+}
+
+* {
+  font-family: "Poppins";
+  padding: 0px;
+  margin: 0px;
+}
+
+.w80 {
+  width: 80%;
+}
+
+.tab {
+  margin-top: 1rem;
+  margin-bottom: 1rem;
+}
+
+/* submit button styling */
+#recalc-btn {
+  font-weight: 600;
+  background-color: var(--th-color-darker);
+  border: solid 2px /* some color */;
+  border-radius: 0.5rem;
+  padding: 0.2rem;
+  text-align: center;
+}
+
+#recalc-btn:hover {
+  background-color: rgb(200, 200, 200);
+}
+
+#table-range-form {
+  background-color: var(--th-color);
+  border-radius: 1rem;
+  border: solid 2px;
+}
+
+th {
+  background-color: var(--th-color);
+}
+
+th,
+td {
+  width: 10rem;
+  height: 3rem;
+  border: solid 2px;
+  table-layout: fixed;
+}
+
+/* alternating colors on the mult table */
+td:nth-child(2n) {
+  background-color: var(--td-color-darker);
+}
+td:nth-child(2n + 1) {
+  background-color: var(--td-color);
+}
+
+#table-container {
+  width: 100%;
+  /* height: 50%; */
+  max-height: 60vh;
+}
+
+.mult-table-tab {
+  overflow: scroll;
+  border: solid 2px;
+  max-width: 95%;
+  max-height: 90%;
+  margin: 0 auto 0 auto;
+  /* margin-bottom: 1rem; */
+}
+
+.mult-table {
+  max-height: 90%;
+  width: 100%;
+}
+
+/* top-most table headers are frozen */
+thead > tr > th {
+  top: 0;
+  position: sticky;
+}
+
+/* left-most table headers are frozen */
+tbody > tr > th {
+  left: 0;
+  position: sticky;
+}
+
+/* utility class for JS */
+.visible {
+  visibility: visible;
+}
+
+/* utility class for JS */
+.hidden {
+  visibility: hidden;
+}
+
+/* spacing for jquery widgets */
+.ui-tabs,
+.ui-tabs-panel {
+  padding: 0rem 0rem 1rem 0rem !important;
+  margin: 1rem 0rem 0rem 1.4rem;
+}
